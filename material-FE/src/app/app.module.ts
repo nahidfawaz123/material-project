@@ -7,11 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeModule } from './home/module/home.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MaterailModule}from './search-materail/modules/materail.module';
 import { ShowMaterailComponent } from './search-materail/show-materail/show-materail.component'
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './angular-material.module';
+import {UserModule} from './user/module/user.module'
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,10 @@ import { ShowMaterailComponent } from './search-materail/show-materail/show-mate
     MaterailModule,
     HomeModule,
     CoreModule,
+    UserModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule,
+    ReactiveFormsModule,
     FormsModule
 
   ],

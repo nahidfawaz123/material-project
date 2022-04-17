@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
@@ -119,5 +117,20 @@ public class Material {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return "Material{" +
+                "id=" + id +
+                ", monitorDate=" + monitorDate +
+                ", language='" + language + '\'' +
+                ", section='" + section + '\'' +
+                ", link='" + link + '\'' +
+                ", attachments='" + attachments + '\'' +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", author='" + author + '\'' +
+                '}';
     }
 }

@@ -2,6 +2,10 @@
   <div class="card-header">
     <h3 class="card-title">العنوان :{{ materails.title }}</h3>
   </div>
+  <div class="card-header">
+    <img [src]="materails.attachments "/>
+  </div>
+
   <div class="card-body">
     <p class="text-muted">اللغة : {{ materails.language }}</p>
     <p class="text-muted">الرابط : {{ materails.link }}</p>

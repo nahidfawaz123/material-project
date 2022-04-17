@@ -11,29 +11,37 @@ import { Router } from '@angular/router';
 })
 export class MaterailComponent implements OnInit {
  materails :Materail[]=[]
- getTitle? : number ;
+ id : any ;
  search :string ;
   constructor(private api : ApiService , private router :Router) { }
 
   ngOnInit(): void {
-    this.getmaterails()
+    this.getmaterails() }
 
-  }
-  show(getTitle :number){
-    console.log(getTitle);
-    this.router.navigate(["/show"], {queryParams : { id: getTitle}})
-
-  }
+  show(idShow :number){
+    this.router.navigate(["/show"], {queryParams : { id: idShow}})}
+  edit(idEdit:number){
+    this.router.navigate(["/edit"], {queryParams : { id: idEdit}})}
 
   public getmaterails(): void {
     this.api.doGet().subscribe(
       (response: Materail[]) => {
         this.materails = response;
-        console.log(this.materails);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
       }
+    );
+  }
+
+  delete(idDelete :number){
+    this.api.doDeleteById(idDelete).subscribe(
+      (response) => {
+        this.getmaterails()
+      },
+
+      (error: HttpErrorResponse) => {
+        alert(error.message);}
     );
   }
 

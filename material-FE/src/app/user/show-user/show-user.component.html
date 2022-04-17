@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="m-3">
+    <div class="me-3 d-none d-md-block">
+      <div class="input-icon">
+        <input
+          type="text"
+          class="form-control"
+          placeholder=" أبحث ...."
+          [(ngModel)]="search"
+        />
+        <span class="input-icon-addon"> </span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-12 col-md-8 col-md-offset-2">
+      <table
+        class="table table-vcenter"
+        *ngFor="let u of users | filter: search; let i = index"
+      >
+        <thead>
+          <tr>
+            <th>أسم المستخدم</th>
+            <th>الأسم الكامل</th>
+            <th>البريد الألكتروني</th>
+            <th>الحاله</th>
+            <th>إجراءات</th>
+            <th class="w-1"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a (click)="show(u.id)" style="color: blue">{{ u.username }}</a>
+            </td>
+            <td class="text-muted">{{ u.fullName }} </td>
+            <td class="text-muted">{{ u.email }}</td>
+            <td class="text-muted">{{ u.status }}</td>
+
+            <td class="text-muted"></td>
+
+            <td>
+              <button
+                type="button"
+                (click)="show(u.id)"
+                class="btn btn-light"
+                role="button"
+              >
+                عـرض
+              </button>
+              <div class="col">
+                <button
+                  href="#"
+                  (click)="edit(u.id)"
+                  class="btn btn-light"
+                  role="button"
+                >
+                  تعديل
+                </button>
+              </div>
+              <div class="col">
+                <button
+                  href="#"
+                  (click)="delete(u.id)"
+                  class="btn btn-light"
+                  role="button"
+                >
+                  حـذف
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

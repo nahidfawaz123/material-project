@@ -1,0 +1,137 @@
+<div class="container card">
+  <div class="row m-3">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <form #addForm="ngForm"   (ngSubmit)="onEdit(addForm)">
+        <div class="mb-3">
+          <label class="form-label">تاريخ الرصد</label>
+          <input
+            type="date"
+            class="form-control form-control-rounded mb-2"
+            id="date"
+            #date
+            min="1900-01-01"
+            ngModel="{{ materails.monitorDate }}"
+            name="monitorDate"
+            #monitorDate="ngModel"
+            value="{{ materails.monitorDate }}"
+          />
+          <span style="color: red;" *ngIf="!monitorDate.valid && monitorDate.touched">* إدخال تاريخ الرصد</span>
+
+        </div>
+        <div class="mb-3">
+          <div class="form-label">اللغة</div>
+          <select
+            class="form-select form-control-rounded"
+            ngModel="{{ materails.language }}"
+            name="language"
+            #language="ngModel"
+          >
+
+            <option value="عربي">عربي</option>
+            <option value="إنجليزي">إنجليزي</option>
+          </select>
+          <span style="color: red;" *ngIf="!language.valid && language.touched">*أختر اللغة </span>
+
+        </div>
+        <div class="mb-3">
+          <div class="form-label">القسم</div>
+          <select
+            class="form-select form-control-rounded"
+            name="section"
+            ngModel="{{ materails.section }}"
+            #section="ngModel"
+
+
+          >
+            <option value="سياسي">سياسي</option>
+            <option value="رياضي">رياضي</option>
+            <option value="إجتماعي">إجتماعي</option>
+          </select>
+          <span style="color: red;"*ngIf="!section.valid && section.touched">*أختر القسم </span>
+
+        </div>
+        <div class="mb-3">
+          <label class="form-label">الكاتب</label>
+          <input
+            type="text"
+            class="form-control form-control-rounded mb-2"
+            ngModel="{{ materails.author }}"
+            name="author"
+            placeholder="..."
+            #author="ngModel"
+            maxlength="50"
+            value="{{ materails.author }}"
+            />
+            <span style="color: red;" *ngIf="!author.valid && author.touched">*إدخل أسم الكاتب </span>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">العنوان</label>
+          <input
+            type="text"
+            class="form-control form-control-rounded mb-2"
+            name="title"
+            ngModel="{{ materails.title }}"
+            #title="ngModel"
+            placeholder="..."
+            maxlength="150"
+            value="{{ materails.title }}"
+
+          />
+          <span style="color: red;" *ngIf="!title.valid && title.touched">*إدخل العنوان </span>
+
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">الرابط</label>
+
+          <input
+            type="text"
+            name="link"
+            ngModel="{{ materails.link }}"
+            #link="ngModel"
+            class="form-control form-control-rounded mb-2"
+            placeholder="https://example.com"
+            maxlength="100"
+            value="{{ materails.link }}"
+
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">المرفقات</label>
+          <input
+            type="file"
+            class="form-control form-control-rounded mb-2"
+            ngModel="{{ materails.attachments }}"
+            #file="ngModel"
+            name="attachments"
+            accept="image/png , application/pdf"
+          />
+
+          <span>{{ materails.attachments }}</span>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">المحتوى</label>
+          <textarea
+            class="form-control form-control-rounded"
+            ngModel="{{ materails.content }}"
+            name="content"
+            #content="ngModel"
+            placeholder=" الحد الأقصى 1000 حرف "
+            maxlength="1000"
+            value="{{ materails.content }}"
+
+
+          ></textarea>
+          <span style="color: red;" *ngIf="!content.valid && content.touched">*إدخل المحتوى </span>
+
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary btn-lg"
+        >
+          أرسل
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,95 @@
+
+<nav class="page-header navbar navbar-expand-lg navbar-light bg-light">
+  <div class="" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/showUser" >عرض المستخدمين </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container card">
+  <div class="row m-3">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <form #addForm="ngForm"   (ngSubmit)="onEdit(addForm)">
+        <div class="mb-3">
+
+        </div>
+        <div class="mb-3">
+          <label class="form-label">أسمك الكامل</label>
+          <input
+            type="text"
+            class="form-control form-control-rounded mb-2"
+            pattern="^[\u0621-\u064A\s\p{N}]+$"
+            ngModel="{{ users.fullName }}"
+            name="fullName"
+            placeholder="..."
+            required
+            #fullName="ngModel"
+            value="{{ users.fullName }}"
+            maxlength="50"/>
+
+            <span style="color: red;" *ngIf="!fullName.valid && fullName.touched">*أدخل أسمك</span>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">أسم المستخدم </label>
+          <input
+            type="text"
+            class="form-control form-control-rounded mb-2"
+            ngModel="{{ users.username }}"
+            name="username"
+            placeholder="..."
+            pattern="^[a-zA-Z0-9-_.]+$"
+            #username="ngModel"
+            value="{{ users.username }}"
+
+            maxlength="50"/>
+
+            <span style="color: red;" *ngIf="!username.valid && username.touched">*أدخل أسم المستخدم</span>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">الايميل</label>
+          <input
+            type="email"
+            class="form-control form-control-rounded mb-2"
+            name="email"
+            ngModel="{{ users.email }}"
+            pattern="\w+?@\w+?\x2E.+"
+            #email="ngModel"
+            placeholder="..."
+
+            maxlength="150"
+            value="{{ users.email }}"
+
+          />
+          <span style="color: red;" *ngIf="!email.valid && email.touched">*إدخل البريد الاكتروني  </span>
+
+        </div>
+        <div class="mb-3">
+          <label class="form-label">كلمه المرور</label>
+          <input
+          type="password"
+            class="form-control form-control-rounded"
+            ngModel="{{ users.password }}"
+            name="password"
+            #password="ngModel"
+
+            value="{{ users.password }}"
+
+
+          />
+          <span style="color: red;" *ngIf="!password.valid && password.touched">*إدخل المحتوى </span>
+
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary btn-lg"
+        >
+          أرسل
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+

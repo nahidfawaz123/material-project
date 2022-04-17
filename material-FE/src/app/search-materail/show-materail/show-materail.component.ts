@@ -20,8 +20,6 @@ export class ShowMaterailComponent implements OnInit {
   title :"",
   content :"",
   author:""}
-
-
 id? :any;
   constructor(private routr : ActivatedRoute , private api : ApiService ) { }
 
@@ -29,14 +27,12 @@ id? :any;
     this.routr.queryParams.subscribe((params : Params )=>
       {
         this.id = params['id'];
-        console.log(this.id);
-
       })
 
       this.api.doGetById(this.id).subscribe(
+
         (response) => {
           this.materails = response;
-          console.log(this.materails);
         },
         (error: HttpErrorResponse) => {
           alert(error.message);

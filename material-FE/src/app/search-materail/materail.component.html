@@ -1,13 +1,14 @@
-
-
 <div class="container">
   <div class="m-3">
     <div class="me-3 d-none d-md-block">
       <div class="input-icon">
-        <input type="text" class="form-control" placeholder=" أبحث ...." [(ngModel)]="search">
-        <span class="input-icon-addon">
-
-        </span>
+        <input
+          type="text"
+          class="form-control"
+          placeholder=" أبحث ...."
+          [(ngModel)]="search"
+        />
+        <span class="input-icon-addon">  </span>
       </div>
     </div>
   </div>
@@ -15,13 +16,14 @@
     <div class="col-xl-12 col-md-8 col-md-offset-2">
       <table
         class="table table-vcenter"
-        *ngFor="let material of materails |filter:search;  let i = index"
+        *ngFor="let material of materails | filter: search; let i = index"
       >
+
         <thead>
           <tr>
-            <th>العنوان</th>
+            <th>  العنوان</th>
             <th>تاريخ الرصد</th>
-            <th>الموؤلف</th>
+            <th>المؤلف</th>
             <th>إجراءات</th>
             <th class="w-1"></th>
           </tr>
@@ -29,8 +31,9 @@
         <tbody>
           <tr>
             <td>
-              <a (click)="show(material.id)" style="color: blue;"
-              >{{ material.title }} </a>
+              <a (click)="show(material.id)" style="color: blue"
+                >{{ material.title }}
+              </a>
             </td>
 
             <td class="text-muted">
@@ -40,19 +43,34 @@
             <td class="text-muted"></td>
 
             <td>
-                  <button type="button"
-                    (click)="show(material.id)"
-                    class="btn btn-light"
-                    role="button"
-                    >عـرض</button
-                  >
-                <div class="col">
-                  <button href="#" class="btn btn-light" role="button">تعديل</button>
-                </div>
-                <div class="col">
-                  <button href="#" class="btn btn-light" role="button">حـذف</button>
-                </div>
-
+              <button
+                type="button"
+                (click)="show(material.id)"
+                class="btn btn-light"
+                role="button"
+              >
+                عـرض
+              </button>
+              <div class="col">
+                <button
+                  href="#"
+                  (click)="edit(material.id)"
+                  class="btn btn-light"
+                  role="button"
+                >
+                  تعديل
+                </button>
+              </div>
+              <div class="col">
+                <button
+                  href="#"
+                  (click)="delete(material.id)"
+                  class="btn btn-light"
+                  role="button"
+                >
+                  حـذف
+                </button>
+              </div>
             </td>
           </tr>
         </tbody>

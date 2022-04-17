@@ -1,4 +1,5 @@
 package com.example.material.material;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -28,7 +29,6 @@ public class MaterialController {
     @GetMapping
     public List< Material > getMaterials(){
         return materialService.getMaterials();
-
     }
   //post data with validation exception the file (pdf , png)
     @PostMapping("/add")
@@ -37,6 +37,15 @@ public class MaterialController {
         if (material.getAttachments().substring(length-3).equals("pdf")||material.getAttachments().substring(length-3).equals("png")){
              materialService.addMaterial(material);
         }
+    }
+    @DeleteMapping("/delete/{id}")
+    public  void deleteMaterial (@PathVariable String id ){
+        materialService.deleteMaterialByID(id);
+    }
+    @PutMapping("/update/{id}")
+    public Material updateMaterail(@PathVariable String id ,@RequestBody Material material){
+       return materialService.updateProduct( id ,material);
+
     }
 
 }
